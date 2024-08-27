@@ -1,192 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Layanan Service HP</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            background-color: #f7f7f7;
-        }
-        /* Container styles */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        background-color: #f7f7f7;
+      }
+      /* Container styles */
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-        /* Header styles */
-        .logo {
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 80px;
-        }
+      /* Header styles */
+      .logo {
+        display: block;
+        margin: 0 auto 20px;
+        max-width: 80px;
+      }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        /* Label and input styles */
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+      /* Label and input styles */
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
 
-        input[type="text"],
-        input[type="tel"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+      label.same-address {
+        font-weight: normal;
+        margin-bottom: 20px;
+      }
 
-        textarea {
-            resize: none;
-        }
+      input[type="text"],
+      input[type="tel"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
 
-        /* Checkbox group styles */
+      input#delivery-address {
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      /* Checkbox group styles */
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      /* Button styles */
+      .btn-submit {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .btn-submit:hover {
+        background-color: #45a049;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 600px) {
         .checkbox-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
+          grid-template-columns: 1fr;
         }
-
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        /* Button styles */
-        .btn-submit {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn-submit:hover {
-            background-color: #45a049;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 600px) {
-            .checkbox-group {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- H1 replaced with base64 logo -->
-        <img src="https://gadgetsolution.github.io/logo.png" alt="Gadget Solutions Logo" class="logo">
-        <div class="nota-header">
-            <h2>Form Layanan Service HP</h2>
-        </div>
-        <div class="nota-body">
-            <label for="customer-name">Nama Pelanggan:</label>
-            <input type="text" id="customer-name" placeholder="Masukkan nama lengkap Anda">
-    
-            <label for="pickup-address">Alamat Penjemputan:</label>
-            <input type="text" id="pickup-address" placeholder="Masukkan alamat penjemputan perangkat">
-    
-            <label for="delivery-address">Alamat Pengantaran:</label>
-            <input type="text" id="delivery-address" placeholder="Masukkan alamat pengantaran perangkat">
-    
-            <label for="customer-phone">Nomor Telepon:</label>
-            <input type="tel" id="customer-phone" placeholder="Masukkan nomor telepon yang dapat dihubungi">
+      <!-- H1 replaced with base64 logo -->
+      <img
+        src="https://gadgetsolution.github.io/logo.png"
+        alt="Gadget Solutions Logo"
+        class="logo"
+      />
+      <div class="nota-header">
+        <h2>Form Layanan Service HP</h2>
+      </div>
+      <div class="nota-body">
+        <label for="customer-name">Nama Pelanggan:</label>
+        <input
+          type="text"
+          id="customer-name"
+          placeholder="Masukkan nama lengkap Anda"
+        />
 
-            <label for="phone-model">Tipe/Model HP:</label>
-            <input type="text" id="phone-model" placeholder="Masukkan tipe atau model HP (misal: Oppo A71)">
-    
-    
-            <label for="repair-type">Jenis Perbaikan:</label>
-            <div class="checkbox-group" id="repair-type">
-                <label><input type="checkbox" value="Ganti LCD"> Ganti LCD</label>
-                <label><input type="checkbox" value="Lupa Sandi"> Lupa Sandi</label>
-                <label><input type="checkbox" value="Lupa Pola"> Lupa Pola</label>
-                <label><input type="checkbox" value="Lupa Akun"> Lupa Akun</label>
-                <label><input type="checkbox" value="Ganti Baterai"> Ganti Baterai</label>
-                <label><input type="checkbox" value="Tidak Bisa Ngecas"> Tidak Bisa Ngecas</label>
-                <label><input type="checkbox" value="Simcard Tidak Terdeteksi"> Simcard Tidak Terdeteksi</label>
-                <label><input type="checkbox" value="Ganti Tombol Power"> Ganti Tombol Power</label>
-                <label><input type="checkbox" value="Ganti Tombol Volume"> Ganti Tombol Volume</label>
-                <label><input type="checkbox" value="Ganti Speaker"> Ganti Speaker</label>
-                <label><input type="checkbox" value="Ganti Kamera"> Ganti Kamera</label>
-                <label><input type="checkbox" value="Mati Total"> Mati Total</label>
-                <label><input type="checkbox" value="Ganti Casing"> Ganti Casing</label>
-                <label><input type="checkbox" value="Ganti Backdoor"> Ganti Backdoor</label>
-            </div>
-    
-            <label for="damage-details">Detail Lainnya:</label>
-            <textarea id="damage-details" rows="4" placeholder="Jelaskan secara singkat kerusakan yang terjadi"></textarea>
+        <label for="pickup-address">Alamat Penjemputan:</label>
+        <input
+          type="text"
+          id="pickup-address"
+          placeholder="Masukkan alamat penjemputan perangkat"
+        />
+
+        <label for="delivery-address">Alamat Pengantaran:</label>
+        <input
+          type="text"
+          id="delivery-address"
+          placeholder="Masukkan alamat pengantaran perangkat"
+        />
+
+        <!-- Checkbox untuk Alamat Pengantaran -->
+        <label class="same-address"
+          ><input type="checkbox" id="same-address" /> Sama dengan Alamat
+          Penjemputan</label
+        >
+
+        <label for="customer-phone">Nomor Telepon:</label>
+        <input
+          type="tel"
+          id="customer-phone"
+          placeholder="Masukkan nomor telepon yang dapat dihubungi"
+        />
+
+        <label for="phone-model">Tipe/Model HP:</label>
+        <input
+          type="text"
+          id="phone-model"
+          placeholder="Masukkan tipe atau model HP (misal: Oppo A71)"
+        />
+
+        <label for="repair-type">Jenis Perbaikan:</label>
+        <div class="checkbox-group" id="repair-type">
+          <label><input type="checkbox" value="Ganti LCD" /> Ganti LCD</label>
+          <label><input type="checkbox" value="Lupa Sandi" /> Lupa Sandi</label>
+          <label><input type="checkbox" value="Lupa Pola" /> Lupa Pola</label>
+          <label><input type="checkbox" value="Lupa Akun" /> Lupa Akun</label>
+          <label
+            ><input type="checkbox" value="Ganti Baterai" /> Ganti
+            Baterai</label
+          >
+          <label
+            ><input type="checkbox" value="Tidak Bisa Ngecas" /> Tidak Bisa
+            Ngecas</label
+          >
+          <label
+            ><input type="checkbox" value="Simcard Tidak Terdeteksi" /> Simcard
+            Tidak Terdeteksi</label
+          >
+          <label
+            ><input type="checkbox" value="Ganti Tombol Power" /> Ganti Tombol
+            Power</label
+          >
+          <label
+            ><input type="checkbox" value="Ganti Tombol Volume" /> Ganti Tombol
+            Volume</label
+          >
+          <label
+            ><input type="checkbox" value="Ganti Speaker" /> Ganti
+            Speaker</label
+          >
+          <label
+            ><input type="checkbox" value="Ganti Kamera" /> Ganti Kamera</label
+          >
+          <label><input type="checkbox" value="Mati Total" /> Mati Total</label>
+          <label
+            ><input type="checkbox" value="Ganti Casing" /> Ganti Casing</label
+          >
+          <label
+            ><input type="checkbox" value="Ganti Backdoor" /> Ganti
+            Backdoor</label
+          >
         </div>
-        <button class="btn-submit" onclick="generateWaLink()">Kirim</button>
-    </div>    
+
+        <label for="damage-details">Detail Lainnya:</label>
+        <textarea
+          id="damage-details"
+          rows="4"
+          placeholder="Jelaskan secara singkat kerusakan yang terjadi"
+        ></textarea>
+      </div>
+      <button class="btn-submit" onclick="generateWaLink()">Kirim</button>
+    </div>
 
     <script>
-        function generateInvoiceNumber() {
-            const prefix = "INV";
-            const randomNumber = Math.floor(100000 + Math.random() * 900000); // 6 digit number
-            return prefix + randomNumber;
+      function generateInvoiceNumber() {
+        const prefix = "INV";
+        const randomNumber = Math.floor(100000 + Math.random() * 900000); // 6 digit number
+        return prefix + randomNumber;
+      }
+
+      document
+        .getElementById("same-address")
+        .addEventListener("change", function () {
+          const deliveryAddressInput =
+            document.getElementById("delivery-address");
+          if (this.checked) {
+            deliveryAddressInput.value =
+              document.getElementById("pickup-address").value;
+            deliveryAddressInput.disabled = true;
+          } else {
+            deliveryAddressInput.disabled = false;
+          }
+        });
+
+      function generateWaLink() {
+        const name = document.getElementById("customer-name").value;
+        const phoneModel = document.getElementById("phone-model").value;
+        const pickupAddress = document.getElementById("pickup-address").value;
+        const deliveryAddress =
+          document.getElementById("delivery-address").value;
+        const phone = document.getElementById("customer-phone").value;
+        const damageDetails = document.getElementById("damage-details").value;
+
+        let repairType = [];
+        document
+          .querySelectorAll('#repair-type input[type="checkbox"]:checked')
+          .forEach((checkbox) => {
+            repairType.push(checkbox.value);
+          });
+
+        const repairTypeText =
+          repairType.length > 0 ? repairType.join("\n- ") : "-";
+        const invoiceNumber = generateInvoiceNumber();
+
+        const sameAddress = document.getElementById("same-address").checked;
+        const addressText = sameAddress
+          ? "*Alamat Penjemputan/Pengantaran* : \n" + pickupAddress + "\n\n"
+          : "*Alamat Penjemputan* : \n" +
+            pickupAddress +
+            "\n\n" +
+            "*Alamat Pengantaran* : \n" +
+            deliveryAddress +
+            "\n\n";
+
+        const waMessage =
+          "Tiket Layanan - Gadget Solution\n\n" +
+          "*Nomor Faktur* : \n" +
+          invoiceNumber +
+          "\n\n" +
+          "*Tanggal* : \n" +
+          new Date().toLocaleDateString() +
+          "\n\n" +
+          "*#INFORMASI PELANGGAN#*\n\n" +
+          "*Pemilik Perangkat* : \n" +
+          name +
+          "\n\n" +
+          addressText +
+          "*#RINCIAN PERBAIKAN#*\n\n" +
+          "*Tipe/Model HP* : \n" +
+          phoneModel +
+          "\n\n" +
+          "*Jenis Perbaikan* : \n- " +
+          repairTypeText +
+          "\n\n" +
+          "*Detail Lainnya* : \n" +
+          damageDetails;
+
+        var url_wa = "https://web.whatsapp.com/send";
+        if (
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        ) {
+          url_wa = "whatsapp://send/";
         }
-    
-        function generateWaLink() {
-            const name = document.getElementById('customer-name').value;
-            const phoneModel = document.getElementById('phone-model').value;
-            const pickupAddress = document.getElementById('pickup-address').value;
-            const deliveryAddress = document.getElementById('delivery-address').value;
-            const phone = document.getElementById('customer-phone').value;
-            const damageDetails = document.getElementById('damage-details').value;
-    
-            let repairType = [];
-            document.querySelectorAll('#repair-type input[type="checkbox"]:checked').forEach((checkbox) => {
-                repairType.push(checkbox.value);
-            });
-    
-            const repairTypeText = repairType.length > 0 ? repairType.join('\n- ') : '-';
-            const invoiceNumber = generateInvoiceNumber();
-    
-            const waMessage = "Tiket Layanan - Gadget Solution\n\n" +
-                "*Nomor Faktur* : \n" + invoiceNumber + "\n\n" +
-                "*Tanggal* : \n" + new Date().toLocaleDateString() + "\n\n" +
-                "*#INFORMASI PELANGGAN#*\n\n" +
-                "*Pemilik Perangkat* : \n" + name + "\n\n" +
-                "*Alamat Penjemputan* : \n" + pickupAddress + "\n\n" +
-                "*Alamat Pengantaran* : \n" + deliveryAddress + "\n\n" +
-                "*#RINCIAN PERBAIKAN#*\n\n" +
-                "*Tipe/Model HP* : \n" + phoneModel + "\n\n" +
-                "*Jenis Perbaikan* : \n- " + repairTypeText + "\n\n" +
-                "*Detail Lainnya* : \n" + damageDetails;
-    
-            var url_wa = 'https://web.whatsapp.com/send';
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                url_wa = 'whatsapp://send/';
-            }
-    
-            const waUrl = url_wa + "?phone=62895414638730&text=" + encodeURIComponent(waMessage);
-            window.open(waUrl, '_blank');
-        }
+
+        const waUrl =
+          url_wa +
+          "?phone=62895414638730&text=" +
+          encodeURIComponent(waMessage);
+        window.open(waUrl, "_blank");
+      }
     </script>
-    
-</body>
+  </body>
 </html>
